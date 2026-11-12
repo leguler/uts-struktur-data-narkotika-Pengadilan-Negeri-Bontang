@@ -1,4 +1,4 @@
-﻿package uts.narkotika;
+package uts.narkotika;
 
 import uts.narkotika.io.CsvPutusanParser;
 import uts.narkotika.model.Putusan;
@@ -14,8 +14,13 @@ public class Main {
         ArrayStack<String> auditLog = new ArrayStack<>();
         PutusanService service = new PutusanService();
 
+        System.out.println("==================================================");
+        System.out.println("   SISTEM MANAJEMEN PUTUSAN NARKOTIKA - PN BONTANG ");
+        System.out.println("   Kelompok Bontang (Struktur Data & Algoritma)  ");
+        System.out.println("==================================================");
+
         while (true) {
-            System.out.println("\n=== SISTEM MANAJEMEN PUTUSAN NARKOTIKA ===");
+            System.out.println("\n=== MENU UTAMA ===");
             System.out.println("1. Import CSV");
             System.out.println("2. Tampilkan Semua Data (" + data.size() + " putusan)");
             System.out.println("3. Filter Berdasarkan Jenis Narkotika");
@@ -29,7 +34,7 @@ public class Main {
             try {
                 switch (pilihan) {
                     case "1":
-                        System.out.print("Masukkan path file CSV: ");
+                        System.out.print("Masukkan path file CSV (contoh: data/putusan_50.csv): ");
                         String path = scanner.nextLine().trim();
                         data = CsvPutusanParser.parseFile(path);
                         auditLog.push("IMPORT: " + path + " (" + data.size() + " baris)");
